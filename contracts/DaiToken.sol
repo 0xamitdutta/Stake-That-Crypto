@@ -2,10 +2,10 @@
 pragma solidity ^0.8.7;
 
 contract DaiToken {
-    string  public name = "Mock DAI Token";
-    string  public symbol = "mDAI";
-    uint256 public totalSupply = 1000000000000000000000000; // 1 million tokens
-    uint8   public decimals = 18;
+    string  public name;
+    string  public symbol;
+    uint256 public totalSupply;
+    uint8   public decimals; 
 
     event Transfer(
         address indexed _from,
@@ -23,8 +23,12 @@ contract DaiToken {
     mapping(address => mapping(address => uint256)) public allowance;
 
     constructor() {
+        name = "Mock DAI Token";
+        symbol = "mDAI";
+        totalSupply = 1000000000000000000000000;
+        decimals = 18;
         balanceOf[msg.sender] = totalSupply;
-    }
+    } 
 
     function transfer(address _to, uint256 _value) public returns (bool success) {
         require(balanceOf[msg.sender] >= _value);
