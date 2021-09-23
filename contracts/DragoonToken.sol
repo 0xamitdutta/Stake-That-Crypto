@@ -2,10 +2,10 @@
 pragma solidity ^0.8.7;
 
 contract DragoonToken {
-    string  public name = "DragoonToken Token";
-    string  public symbol = "Dragoon";
-    uint256 public totalSupply = 1000000000000000000000000; // 1 million tokens
-    uint8   public decimals = 18;
+    string  public name;
+    string  public symbol;
+    uint256 public totalSupply;
+    uint8   public decimals; 
 
     event Transfer(
         address indexed _from,
@@ -23,6 +23,10 @@ contract DragoonToken {
     mapping(address => mapping(address => uint256)) public allowance;
 
     constructor() {
+        name = "DragoonToken Token";
+        symbol = "Dragoon";
+        totalSupply = 1000000000000000000000000;
+        decimals = 18;
         balanceOf[msg.sender] = totalSupply;
     }
 
